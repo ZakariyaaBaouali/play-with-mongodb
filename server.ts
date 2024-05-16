@@ -8,6 +8,9 @@ app.use(express.json());
 app.use(urlencoded({ extended: true }));
 app.disable("X-Powered-By");
 
+//serve images
+app.use(`${BASE_ROUTE}/assets/images/`, express.static("storage"));
+
 app.get(`${BASE_ROUTE}`, (req: Request, res: Response) => {
   return res.status(200).send("🧑‍🚀Server working...!");
 });
