@@ -62,8 +62,18 @@ route.patch(
   "/upload-movie/:movieId",
   upload.single("thumb"),
   async (req: Request, res: Response) => {
-    ///
-    return res.status(200).send(req.thumb);
+    const movieId = req.params.movieId;
+    try {
+      const movieData = await Movie.findById(movieId);
+      let savedData = null;
+      if (movieData) {
+        movieData.thumb_url = req.thumb || "";
+        savedData = await movieData.save();
+      }
+      return res.status(200).send(savedData);
+    } catch {
+      return res.status(401).send(`Can't find the movie with id ${movieId}`);
+    }
   }
 );
 
