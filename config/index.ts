@@ -5,5 +5,5 @@ const MONGODB_IP = process.env.MONGODB_IP;
 const MONGODB_PORT = process.env.MONGODB_PORT;
 
 export const SERVER_PORT = process.env.PORT || 8080;
-export const MONGODB_URI = `mongodb://${MONGODB_USER}:${MONGODB_PASSWORD}@${MONGODB_IP}:${MONGODB_PORT}/${MONGODB_DB_NAME}`;
+export const MONGODB_URI = `mongodb://${MONGODB_USER}:${MONGODB_PASSWORD}@${MONGODB_IP}:${MONGODB_PORT}/${MONGODB_DB_NAME}?authSource=admin`;
 export const BASE_ROUTE = "/api/v1";

@@ -18,7 +18,7 @@ app.get(`${BASE_ROUTE}`, (req: Request, res: Response) => {
 //movies handler
 app.use(`${BASE_ROUTE}/movies`, movieController);
 
-//ConnectToDB();
+ConnectToDB();
 
 app.listen(SERVER_PORT, () =>
   console.log(`Server running on port ${SERVER_PORT} 🧑‍🚀`)
